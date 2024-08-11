@@ -1,0 +1,27 @@
+.favorites-card {
+  flex-basis: 500px;
+  row-gap: 20px !important;
+}
+
+.favorites-heading {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.favorite-movies {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 14px;
+}
+
+.favorite-movie-title {
+  font-weight: 600;
+  text-align: left;
+}
+
+@media screen and (max-width: 978px) {
+  .favorites-card {
+    flex-basis: 0;
+  }
+}

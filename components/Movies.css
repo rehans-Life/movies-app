@@ -1,0 +1,6 @@
+.movies-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  row-gap: 20px;
+}

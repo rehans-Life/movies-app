@@ -1,0 +1,22 @@
+.movie-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 8px;
+  width: 100%;
+}
+
+.checkbox {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.movie-heading {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.movie-desc {
+  text-align: left;
+}
