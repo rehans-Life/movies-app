@@ -26,5 +26,8 @@
 @media screen and (max-width: 978px) {
   .favorites-card {
     flex-basis: 0;
+    position: relative;
+    top: 0;
+    left: 0;
   }
 }
