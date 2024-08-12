@@ -1,24 +1,36 @@
 import { useMovies } from "../stores/moviesStore";
-import MovieCard from "./MovieCard";
 import Input from "./Input";
+import { useQuery } from "@tanstack/react-query";
+import { getMovies } from "../utils/api";
+import MoivesList from "./MoviesList";
 import "./Movies.css";
 
 export default function Movies() {
-  const { movies, search, setSearch } = useMovies((state) => state);
+  const { search, setSearch, setMovies, favorites } = useMovies(
+    (state) => state
+  );
 
-  const moviesList = movies.map((movie, i) => (
-    <MovieCard key={i} movie={movie} />
-  ));
+  const { isFetching } = useQuery({
+    queryKey: ["movies", search],
+    queryFn: async (queryContext) => {
+      const data = await getMovies(queryContext);
+      const movies = data?.Search || [];
+      setMovies(
+        movies.map((movie) => ({
+          ...movie,
+          favorite: favorites.some(
+            (favoritedMovie) => favoritedMovie.imdbID === movie.imdbID
+          ),
+        }))
+      );
+      return data;
+    },
+  });
+
   return (
     <div className="movies-card">
       <Input label="Search for movies" value={search} onChange={setSearch} />
-      {movies.length ? (
-        moviesList
-      ) : (
-        <div>
-          <b>• No Movies Found with the name "{search}"</b>
-        </div>
-      )}
+      <MoivesList isFetching={isFetching} />
     </div>
   );
 }
