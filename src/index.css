@@ -11,6 +11,15 @@ body {
   padding: 15px;
   border-radius: 10px;
   row-gap: 10px;
+}
+
+.action-btn {
+  border: none;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
   cursor: pointer;
 }
 
@@ -22,5 +31,5 @@ body {
 }
 
 .circle-selected {
-  background-color: greenyellow;
+  background-color: green;
 }

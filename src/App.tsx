@@ -6,13 +6,13 @@ import { getMovies } from "../utils/api";
 import "./App.css";
 
 function App() {
-  const setMovies = useMovies((state) => state.setMovies);
+  const { setMovies, search } = useMovies((state) => state);
 
   useQuery({
-    queryKey: ["movies"],
+    queryKey: ["movies", search],
     queryFn: async (queryContext) => {
       const data = await getMovies(queryContext);
-      setMovies(data.Search);
+      setMovies(data?.Search || []);
       return data;
     },
   });

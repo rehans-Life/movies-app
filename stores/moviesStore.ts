@@ -3,21 +3,29 @@ import { create } from "zustand";
 export interface Movie {
   imdbID: string;
   Title: string;
-  Plot: string;
   favorite: boolean;
+  Poster: string;
+}
+
+export interface MovieData {
+  Plot: string;
 }
 
 export interface MovieStore {
+  search: string;
   movies: Movie[];
   favorites: Movie[];
+  setSearch: (search: string) => void;
   setMovies: (movies: Movie[]) => void;
   addToFavorites: (movie: Movie) => void;
   removeFromFavorites: (movie: Movie) => void;
 }
 
 export const useMovies = create<MovieStore>((set) => ({
+  search: "Batman",
   movies: [],
   favorites: [],
+  setSearch: (search: string) => set((state) => ({ ...state, search })),
   setMovies: (movies: Movie[]) => set((state) => ({ ...state, movies })),
   addToFavorites: (movie: Movie) =>
     set((state) => {
