@@ -1,11 +1,18 @@
 import { useMovies } from "../stores/moviesStore";
 import MovieCard from "./MovieCard";
+import Skeleton from "./Skeleton";
 
 export default function MoviesList({ isFetching }: { isFetching: boolean }) {
   const { movies, search } = useMovies((state) => state);
 
   if (isFetching) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+      </>
+    );
   }
 
   if (!movies.length && !isFetching) {

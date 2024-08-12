@@ -1,0 +1,27 @@
+.skeleton {
+  height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  animation-name: shimmer;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+
+@keyframes shimmer {
+  0% {
+    background-color: rgb(220, 220, 220);
+  }
+  25% {
+    background-color: rgb(232, 232, 232);
+  }
+  50% {
+    background-color: rgb(211, 211, 211);
+  }
+  75% {
+    background-color: rgb(194, 194, 194);
+  }
+  100% {
+    background-color: rgb(215, 215, 215);
+  }
+}

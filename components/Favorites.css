@@ -1,6 +1,9 @@
 .favorites-card {
   flex-basis: 500px;
   row-gap: 20px !important;
+  position: sticky;
+  right: 20px;
+  top: 20px;
 }
 
 .favorites-heading {
