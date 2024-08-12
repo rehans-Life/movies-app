@@ -2,7 +2,7 @@ import { QueryFunction } from "@tanstack/react-query";
 import { Movie, MovieData } from "../stores/moviesStore";
 import axios from "../utils/axios";
 
-const API_KEY = "d59f7bf6";
+const API_KEY = "1dc76819";
 
 export const getMovies: QueryFunction<{ Search?: Movie[] }> = async ({
   queryKey: [, search],
