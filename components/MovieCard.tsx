@@ -1,12 +1,17 @@
 import { Movie, useMovies } from "../stores/moviesStore";
 import { useQuery } from "@tanstack/react-query";
 import { getMovie } from "../utils/api";
+import MovieDescription from "./MovieDescription";
 import "./MovieCard.css";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
   const { addToFavorites, removeFromFavorites } = useMovies((state) => state);
 
-  const { data: movieData } = useQuery({
+  const {
+    data: movieData,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["movies", movie.imdbID],
     queryFn: getMovie,
   });
@@ -30,10 +35,11 @@ export default function MovieCard({ movie }: { movie: Movie }) {
               className={`circle ${movie.favorite && "circle-selected"}`}
             ></div>
           </div>
-          <div className="movie-desc">
-            {movieData?.Plot ||
-              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet vero vitae minima sapiente nostrum maxime a magnam molestias neque sunt, hic qui corrupti deserunt sequi, ut dolor nisi ipsum pariatur."}
-          </div>
+          <MovieDescription
+            isLoading={isLoading}
+            isError={isError}
+            desc={movieData?.Plot}
+          />
           <button
             type="button"
             className={`action-btn ${

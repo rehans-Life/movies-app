@@ -14,9 +14,9 @@ export default function MoviesList({
   if (isFetching) {
     return (
       <>
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
+        <Skeleton height="200px" width="100%" />
+        <Skeleton height="200px" width="100%" />
+        <Skeleton height="200px" width="100%" />
       </>
     );
   }
