@@ -1,0 +1,12 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.input-label {
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+}
