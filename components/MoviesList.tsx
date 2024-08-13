@@ -11,8 +11,6 @@ export default function MoviesList({
 }) {
   const { movies, search } = useMovies((state) => state);
 
-  console.log(isFetching, isError);
-
   if (isFetching) {
     return (
       <>
