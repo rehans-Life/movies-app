@@ -2,8 +2,16 @@ import { useMovies } from "../stores/moviesStore";
 import MovieCard from "./MovieCard";
 import Skeleton from "./Skeleton";
 
-export default function MoviesList({ isFetching }: { isFetching: boolean }) {
+export default function MoviesList({
+  isFetching,
+  isError,
+}: {
+  isFetching: boolean;
+  isError: boolean;
+}) {
   const { movies, search } = useMovies((state) => state);
+
+  console.log(isFetching, isError);
 
   if (isFetching) {
     return (
@@ -12,6 +20,16 @@ export default function MoviesList({ isFetching }: { isFetching: boolean }) {
         <Skeleton />
         <Skeleton />
       </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div>
+        <b>
+          • An error occured while loading the movies with the name "{search}"
+        </b>
+      </div>
     );
   }
 

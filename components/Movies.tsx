@@ -10,7 +10,7 @@ export default function Movies() {
     (state) => state
   );
 
-  const { isFetching } = useQuery({
+  const { isFetching, isError } = useQuery({
     queryKey: ["movies", search],
     queryFn: async (queryContext) => {
       const data = await getMovies(queryContext);
@@ -30,7 +30,7 @@ export default function Movies() {
   return (
     <div className="movies-card">
       <Input label="Search for movies" value={search} onChange={setSearch} />
-      <MoivesList isFetching={isFetching} />
+      <MoivesList isFetching={isFetching} isError={isError} />
     </div>
   );
 }
